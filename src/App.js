@@ -2,6 +2,12 @@ import React, { Component } from 'react';
 import './App.css';
 
 class App extends Component {
+
+  getRandomColor() {
+    let colorIndex = Math.floor(Math.random() * this.props.allColors.length);
+    return this.props.allColors[colorIndex];
+  };
+
   render() {
     return (
       <div className="App">
