@@ -1,11 +1,23 @@
 import React, { Component } from 'react';
 import './App.css';
 
+const num_boxes = 32;
+const Box = ({color}) => {
+  const style = {
+    width: '180px',
+    height: '180px',
+    display: 'inline-block',
+    backgroundColor: color
+  }
+  return <div style={style} />;
+};
+
 class App extends Component {
 
   constructor(props) {
     super(props);
-    
+    const boxes = Array(num_boxes).fill().map(this.getRandomColor, this);
+    this.state = {boxes};
   }
 
   getRandomColor() {
@@ -14,9 +26,12 @@ class App extends Component {
   };
 
   render() {
+    const boxes = this.state.boxes.map((color, index) => (
+      <Box key={index} color={color} />
+    ));
     return (
       <div className="App">
-        Color Boxes
+        {boxes}
       </div>
     );
   }
