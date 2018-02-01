@@ -3,6 +3,11 @@ import './App.css';
 
 class App extends Component {
 
+  constructor(props) {
+    super(props);
+    
+  }
+
   getRandomColor() {
     let colorIndex = Math.floor(Math.random() * this.props.allColors.length);
     return this.props.allColors[colorIndex];
